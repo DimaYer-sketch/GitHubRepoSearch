@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Search GitHub Repositories</h1>
+
+  <!-- Input for search keyword -->
+  <input
+    [(ngModel)]="keyword"
+    placeholder="Enter repository name"
+    class="form-control"
+    aria-label="Search repository"
+  />
+
+  <!-- Search button -->
+  <button
+    (click)="searchRepos()"
+    class="btn btn-primary mt-2"
+    [disabled]="loading || !keyword.trim()"
+  >
+    Search
+  </button>
+
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="mt-3 text-center">
+    <p>Loading repositories...</p>
+  </div>
+
+  <!-- Message for no results -->
+  <div
+    *ngIf="!loading && repositories.length === 0 && searchPerformed"
+    class="mt-3 text-center"
+  >
+    <p>No repositories found for "{{ keyword }}".</p>
+  </div>
+
+  <!-- Results block -->
+  <div *ngIf="repositories.length > 0" class="mt-4">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let repo of repositories">
+        <div class="card shadow-sm">
+          <img
+            [src]="repo.ownerAvatarUrl"
+            class="card-img-top"
+            alt="{{ repo.name }} Avatar"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ repo.name }}</h5>
+            <button
+              (click)="addBookmark(repo)"
+              class="btn btn-success"
+              [disabled]="repo.isBookmarked"
+            >
+              {{ repo.isBookmarked ? "Bookmarked" : "Add to Bookmarks" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

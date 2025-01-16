@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>My Bookmarks</h1>
+
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="mt-3 text-center">
+    <p>Loading bookmarks...</p>
+  </div>
+
+  <!-- Message when no bookmarks are found -->
+  <div *ngIf="!loading && bookmarks.length === 0" class="mt-3 text-center">
+    <p>No bookmarks found. Start adding some!</p>
+  </div>
+
+  <!-- Display list of bookmarks -->
+  <div *ngIf="!loading && bookmarks.length > 0" class="mt-4">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let bookmark of bookmarks">
+        <div class="card shadow-sm">
+          <img
+            [src]="bookmark.ownerAvatarUrl"
+            class="card-img-top"
+            [alt]="bookmark.name + ' Avatar'"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ bookmark.name }}</h5>
+            <button
+              class="btn btn-danger btn-sm mt-2"
+              (click)="removeBookmark(bookmark.id)"
+            >
+              Remove Bookmark
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
