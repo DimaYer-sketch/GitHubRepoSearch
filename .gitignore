@@ -1,0 +1,42 @@
+# Ignore node_modules and environment files (Angular)
+Client/GitHubRepoSearch/node_modules/
+Client/GitHubRepoSearch/src/environments/environment.ts
+Client/GitHubRepoSearch/src/environments/environment.prod.ts
+
+# Build artifacts (Angular)
+Client/GitHubRepoSearch/dist/
+Client/GitHubRepoSearch/.angular/
+
+# Ignore npm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+*.tlog
+*.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore .NET build outputs and configuration
+Server/GitHubRepoSearchApi/bin/
+Server/GitHubRepoSearchApi/obj/
+Server/GitHubRepoSearchApi/*.user
+Server/GitHubRepoSearchApi/*.suo
+Server/GitHubRepoSearchApi/*.vs/
+Server/GitHubRepoSearchApi/launchSettings.json
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+*.sln.iml
+
+# Ignore temporary files and directories
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+desktop.ini
