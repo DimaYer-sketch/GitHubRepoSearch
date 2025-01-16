@@ -32,7 +32,7 @@ The server will be available at: https://localhost:7008.
 
 Client Setup:
 Navigate to the Client/GitHubRepoSearch folder.
-Open the folder in Vsual Code.
+Open the folder in Visual Code.
 Run the following commands:
 npm install
 npm start
